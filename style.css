@@ -1,0 +1,108 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1{
+    text-align: center;
+    background-color: rgba(240, 227, 204, 0.9);
+    color:olive;
+    line-height: 10vh;
+}
+
+.weather{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    width: 70%;
+    margin: 4% auto;
+}
+
+.weather div{
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.date{
+    display: block;
+    margin-right: 10%;
+}
+
+.city{
+    display: block;
+    width: 40%;
+    float: left;
+
+    border: 2px solid black;
+    line-height: 5vh;
+}
+
+.getwt{
+    width: 20%;
+    margin: 0 auto;
+    border: 3px solid grey;
+    border-radius: 10px;
+    background-color: rgb(42, 139, 204);
+    color: rgba(0,0,0,0.7);
+    font-weight: bolder;
+    font-size: large;
+}
+
+.result{
+    font-size: larger;
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 10px;
+    text-align: center;
+    background-color: antiquewhite;
+}
+
+.resHead{
+    font-size: 40px;
+    font-weight: 800;
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 70%;
+    background-color: antiquewhite;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.resHead p{
+    float: right;
+    font-size: 20px;
+    font-weight: 500;
+    margin-top: 1%;
+}
+
+.details{
+    border: 0.5px solid grey;
+    border-radius: 10px;
+    width: 20%;
+    margin: 1%;
+    padding: 1%;
+}
+
+body{
+    background-image: url('./images/sunny.jpeg');
+    animation: backimages 10s linear 0s infinite alternate;
+    background-repeat:no-repeat;
+    background-size:cover;
+}
+
+@keyframes backimages{
+    25%{background-image: url('./images/sakura.jpeg');}
+    50%{background-image: url('./images/img3.jpeg');}
+    75%{background-image: url('./images/rain.jpeg');}
+    100%{background-image: url('./images/img1.jpeg');}
+}
