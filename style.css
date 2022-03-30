@@ -37,7 +37,6 @@ h1{
     display: block;
     width: 40%;
     float: left;
-
     border: 2px solid black;
     line-height: 5vh;
 }
@@ -67,23 +66,6 @@ h1{
     background-color: antiquewhite;
 }
 
-.resHead{
-    font-size: 40px;
-    font-weight: 800;
-    border: 1px solid black;
-    border-radius: 10px;
-    width: 70%;
-    background-color: antiquewhite;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.resHead p{
-    float: right;
-    font-size: 20px;
-    font-weight: 500;
-    margin-top: 1%;
-}
 
 .details{
     border: 0.5px solid grey;
@@ -91,18 +73,4 @@ h1{
     width: 20%;
     margin: 1%;
     padding: 1%;
-}
-
-body{
-    background-image: url('./images/sunny.jpeg');
-    animation: backimages 10s linear 0s infinite alternate;
-    background-repeat:no-repeat;
-    background-size:cover;
-}
-
-@keyframes backimages{
-    25%{background-image: url('./images/sakura.jpeg');}
-    50%{background-image: url('./images/img3.jpeg');}
-    75%{background-image: url('./images/rain.jpeg');}
-    100%{background-image: url('./images/img1.jpeg');}
 }
