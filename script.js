@@ -1,47 +1,48 @@
 let city = document.querySelector('.city');
+let graphType = document.querySelector('#graphType');
 
-let graphValues = async (data) => {
-    let xvalues = [], yvalues = [];
-    for (let i = 0; i < data.length; i += 8) {
-        xvalues.push(data[i].dt_txt.substring(0, 10));
-        yvalues.push(data[i].main.temp);
-    }
-    return { xvalues, yvalues }
-}
+document.querySelector('form').addEventListener('click', (e) => {
+    e.preventDefault();
+})
 
 let getWeather = async () => {
-    let res = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city.value}&appid=41202df047fd63403bdfb9681c6c9bdb&units=metric`);
-    let resdata = await res.json();
-    let list = resdata.list;
-    let graphData = await graphValues(list);
-    console.log(graphData)
-    const graph = {
-        labels: graphData.xvalues,
-        dataSets: [{
-            label: 'Temp',
-            data: graphData.yvalues,
+    let weatherapi = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city.value}&appid=25e727a45d41d95cba31ac89a02af7f3&units=metric`);
+    let weatherData = await weatherapi.json();
+    let weatherList = weatherData.list;
+    const xlabels = [];
+    const temp = [];
+    for (let i = 0; i < weatherList.length; i += 8) {
+        xlabels.push(`${weatherList[i].dt_txt.substring(8, 10)}/${weatherList[i].dt_txt.substring(5, 7)}/${weatherList[i].dt_txt.substring(0, 4)}`);
+        temp.push(weatherList[i].main.temp);
+    }
+    const data = {
+        labels: xlabels,
+        datasets: [{
+            label: 'Temperature',
+            data: temp,
             backgroundColor: [
                 'rgba(255, 159, 64, 0.2)',
                 'rgba(255, 205, 86, 0.2)',
-                'rgba(201, 203, 207, 0.2)',
                 'rgba(75, 192, 192, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 95, 132, 0.2)'
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(201, 203, 207, 0.2)'
             ],
             borderColor: [
                 'rgb(255, 159, 64)',
                 'rgb(255, 205, 86)',
-                'rgb(201, 203, 207)',
                 'rgb(75, 192, 192)',
                 'rgb(54, 162, 235)',
-                'rgb(255, 95, 132)'
+                'rgb(153, 102, 255)',
+                'rgb(201, 203, 207)'
             ],
-            borderWidth: 1
+            borderWidth: 1,
         }]
     }
+    let type = graphType.value;
     const config = {
-        type: 'bar',
-        data: graph,
+        type: type,
+        data: data,
         options: {
             scales: {
                 y: {
@@ -49,6 +50,10 @@ let getWeather = async () => {
                 }
             }
         },
-    };
-    const myChart = new Chart(document.getElementById('barGraph').getContext('2d'), config);
+    }
+    let canvas = document.createElement('canvas');
+    canvas.setAttribute('id', 'chart');
+    document.querySelector('.res').innerHTML = '';
+    document.querySelector('.res').append(canvas);
+    const mychart = new Chart(document.getElementById('chart'), config);
 }

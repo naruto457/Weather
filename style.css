@@ -8,7 +8,7 @@ h1{
     text-align: center;
     background-color: rgba(240, 227, 204, 0.9);
     color:olive;
-    line-height: 10vh;
+    line-height: 8vh;
 }
 
 .weather{
@@ -17,20 +17,15 @@ h1{
     justify-content: center;
     align-content: center;
     width: 70%;
-    margin: 4% auto;
+    margin: 1% auto;
 }
 
 .weather div{
-    width: 100%;
+    width: 70%;
     margin: 0 auto;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-}
-
-.date{
-    display: block;
-    margin-right: 10%;
 }
 
 .city{
@@ -38,11 +33,12 @@ h1{
     width: 40%;
     float: left;
     border: 2px solid black;
-    line-height: 5vh;
+    line-height: 3vh;
 }
 
 .getwt{
-    width: 20%;
+    width: auto;
+    padding: 1%;
     margin: 0 auto;
     border: 3px solid grey;
     border-radius: 10px;
@@ -52,25 +48,7 @@ h1{
     font-size: large;
 }
 
-.result{
-    font-size: larger;
-    width: 70%;
+.res{
+    width: 90%;
     margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-items: center;
-    border: 1px solid black;
-    border-radius: 10px;
-    text-align: center;
-    background-color: antiquewhite;
-}
-
-
-.details{
-    border: 0.5px solid grey;
-    border-radius: 10px;
-    width: 20%;
-    margin: 1%;
-    padding: 1%;
 }

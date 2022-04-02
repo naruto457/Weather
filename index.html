@@ -12,15 +12,20 @@
 <body>
     <h1>WEATHER DESCRIPTOR</h1>
 
-    <div class="weather">
-        <div>
-            <input type="text" class="city" placeholder="Enter CITY Name e.g : Hyderabad,Mumbai">
-        </div><br>
-        <button class="getwt" onclick="getWeather()">Get Weather conditions</button>
-    </div>
-    <div>
-        <canvas id="barGraph"></canvas>
-    </div>
+    <form action="">
+        <div class="weather">
+            <div>
+                <input type="text" class="city" placeholder="Enter CITY Name e.g : Hyderabad,Mumbai">
+                <select name="type" id="graphType">
+                    <option value="bar">Bar Graph</option>
+                    <option value="doughnut">Doughnut</option>
+                    <option value="pie">Pie Chart</option>
+                </select>
+            </div><br>
+            <button type="submit" class="getwt" onclick="getWeather()">WEATHER ?</button>
+        </div>
+    </form>
+    <div class="res"></div>
 
     <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
